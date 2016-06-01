@@ -1,0 +1,40 @@
+<h1>Login Checker</h1>
+<br/>
+<br/>
+
+<!-- if flash[:alert] has a value, then display it with some formatting -->
+<% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert]%>
+  </div>
+<% end %>
+<!-- if flash[:notice] has a value, then display it with some formatting -->
+<% if !flash[:notice].nil? %>
+<div class="alert-success alert">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+<!-- this is a break -->
+<br/>
+<!-- form for entering a username and password. -->
+<form action="check_credentials" method="get">
+  <!-- if no user name has been tried,
+  then display the placeholders in the text fields.  Otherwise leave the text that was used in the fields -->
+  <% if !@value_user_id.nil? %>
+    <input type="text" name="userid" placeholder="Username" value="<%= @value_user_id %>"/>
+  <% else %>
+    <input type="text" name="userid" placeholder="Username"/>
+  <% end %>
+  <!-- if no password has been tried,
+  then display the placeholders in the text fields.  Otherwise leave the text that was used in the fields -->
+  <% if !@value_password.nil? %>
+  <input type="text" name="password" placeholder="Password" value="<%= @value_password %>"/>
+  <% else %>
+  <input type="text" name="password" placeholder="Password">
+  <% end %>
+  <input type="submit" value="Submit"/>
+</form>
+
+<br/>
+<!-- Display a random MF Doom quote -->
+<input type="button" value="MF DOOM INSPIRATION" onclick="choose()"></input>
